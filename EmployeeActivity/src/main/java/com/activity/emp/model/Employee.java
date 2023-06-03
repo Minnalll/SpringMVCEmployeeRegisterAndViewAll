@@ -1,13 +1,14 @@
 package com.activity.emp.model;
 
 import java.sql.Date;
-
-import javax.xml.crypto.Data;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
+import java.util.Calendar;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -25,7 +26,10 @@ public class Employee {
 	@Column(name = "esal")
 	private double empSal;
 	@Column(name = "edob")
-	private Date empDOB;
+	private LocalDate empDOB;
+	@Column (name = "eAge")
+	private int empAge;
+	
 
 	public Employee() {
 		super();
@@ -63,18 +67,28 @@ public class Employee {
 		this.empSal = empSal;
 	}
 
-	public Date getEmpDOB() {
+	public LocalDate getEmpDOB() {
 		return empDOB;
 	}
 
-	public void setEmpDOB(Date empDOB) {
+	public void setEmpDOB(LocalDate empDOB) {
 		this.empDOB = empDOB;
+	}
+
+	
+	
+	public int getEmpAge() {
+		return empAge;
+	}
+
+	public void setEmpAge(int empAge) {
+		this.empAge = empAge;
 	}
 
 	@Override
 	public String toString() {
 		return "Employee [empId=" + empId + ", empName=" + empName + ", empDesg=" + empDesg + ", empSal=" + empSal
-				+ ", empDOB=" + empDOB + "]";
+				+ ", empDOB=" + empDOB + ", empAge=" + empAge + "]";
 	}
 
 }
